@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect, render_template
 from config import *
 
 class WebUI:
@@ -11,9 +11,11 @@ class WebUI:
         @self.app.route('/')
         def __index():
             return self.index()
+
     
     def index(self):
-        return "WebUI works!"
+        if 1:
+            return render_template("login.html")
 
     
     def run(self):
