@@ -37,6 +37,10 @@ class WebUI:
         def __login_api():
             return self.login_api()
 
+        @self.app.route('/api/logout')
+        def __logout():
+            return self.logout()
+
 
         # utility
         @self.login_manager.user_loader
@@ -49,10 +53,20 @@ class WebUI:
         if not current_user.is_authenticated:
             return redirect("/login")
         else:
-            return render_template("index.html")
+            all_machines = self.db_manager.get_machines()
+            print(all_machines)
+            return render_template("index.html", all_machines=all_machines)
         
     def login(self):
-        return render_template("login.html")
+        if not current_user.is_authenticated:
+            return render_template("login.html")
+        else:
+            return redirect("/")
+
+    def logout(self):
+        logout_user()
+        return redirect('/login')
+
 
     def login_api(self):
         correct = self.db_manager.check_password(request.form.get('password'))

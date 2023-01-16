@@ -1,0 +1,67 @@
+body{
+    font-family: 'Ubuntu', serif;
+    background-color: #f4f3f8;
+}
+.bell-block{
+    border-radius: 10px;
+    background-color: #ffff;
+    padding: 10px 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.bell-block:hover{
+   background-color: #e2dfdf;
+}
+.bell-heading{
+    font-size: 20px;
+    margin-top: 6px; 
+}
+.bell-host{
+    margin-top: 6px;
+}
+.bell-host-text{
+    color: #7B819B;
+}
+.break-block{
+    margin-bottom: 10px;
+    font-size: 17px;
+    color: #7B819B;
+}
+.toolbar{
+    margin-bottom: 10px;
+    margin-left: 5px;
+    
+}
+.toolbar-icon{
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #0d6efd;
+    margin-right: 5px;
+}
+.toolbar-icon:hover{
+    color: #004dbf;
+}
+.melody_collaps_open_btn{
+    cursor: pointer;
+}
+.melody_collaps_open_btn:hover{
+    background-color: #e2dfdf;
+}
+.controll-icon{
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    color: #0d6efd;
+    margin-right: 5px;
+}
+.controll-icon:hover{
+    color: #004dbf;
+}
+
+.config_val{
+    font-weight: bold;
+}
+
+.delete_melody {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

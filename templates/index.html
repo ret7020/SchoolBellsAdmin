@@ -1,25 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Управление сетью звонков</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin"
+    />
+    <link rel="stylesheet" href="/static/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
     <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
-    <title>Управление сетью звонков</title>
   </head>
+
   <body>
-    Admin area
+    <div class="container">
+      <h1 class="text-center">Подключенные звонки</h1>
+      <div class="row toolbar">
+        <div class="col" style="display: inline-block">
+          <i
+            class="fa-solid fa-plus-circle toolbar-icon"
+            title="Добавить корпус"
+            data-bs-toggle="modal"
+            data-bs-target="#addBellModal"
+          ></i>
+          <i
+            class="fa-solid fa-cog toolbar-icon"
+            title="Настройки"
+            data-bs-toggle="modal"
+            data-bs-target="#settingsModal"
+          ></i>
+
+          <i
+            class="fa-solid fa-right-from-bracket toolbar-icon float-end"
+            title="Выйти из панели управления звонками"
+            onclick="window.location.href='/api/logout'"
+          ></i>
+        </div>
+      </div>
+      <div id="connected_workers">
+        {% for machine in all_machines %}
+        <div class="row bell-block">
+          <div class="d-flex justify-content-between">
+            <div class="row">
+              <span class="bell-heading"
+                >Корпус: <span class="fst-italic">{{machine[3]}}</span></span
+              >
+            </div>
+            <button type="button" class="btn btn-primary">Открыть</button>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
       crossorigin="anonymous"
     ></script>
+    <script src="/static/index.js"></script>
     <script src="/static/api.js"></script>
   </body>
 </html>

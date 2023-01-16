@@ -10,3 +10,7 @@ class DbManager:
         real_pass_hash = self.cursor.execute(
             'SELECT `password` FROM `settings`').fetchone()[0]
         return check_password_hash(real_pass_hash, input_password)
+
+    def get_machines(self):
+        machines = self.cursor.execute('SELECT * FROM `bell_machines`').fetchall()
+        return machines
