@@ -1,2 +1,3 @@
 FLASK_HOST = '0.0.0.0'
 FLASK_PORT = 9090
+SECRET_KEY = "hyusdfg76236776f7tfsusudf(*&"
