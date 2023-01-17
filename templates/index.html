@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
+    <!-- Developed by github.com/ret7020 -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,6 +37,12 @@
             data-bs-target="#addBellModal"
           ></i>
           <i
+            class="fa-solid fa-pencil toolbar-icon"
+            title="Управление расписанием"
+            data-bs-toggle="modal"
+            data-bs-target="#settingsModal"
+          ></i>
+          <i
             class="fa-solid fa-cog toolbar-icon"
             title="Настройки"
             data-bs-toggle="modal"
@@ -51,7 +58,7 @@
       </div>
       <div id="connected_workers">
         {% for machine in all_machines %}
-        <div class="row bell-block">
+        <div class="row bell-block" onclick="openBellManager('{{machine[1]}}')">
           <div class="d-flex justify-content-between">
             <div class="row">
               <span class="bell-heading"
