@@ -38,7 +38,7 @@
           ></i>
           <i
             class="fa-solid fa-pencil toolbar-icon"
-            title="Управление расписанием"
+            title="Множественное управление расписанием"
             data-bs-toggle="modal"
             data-bs-target="#settingsModal"
           ></i>
@@ -58,14 +58,14 @@
       </div>
       <div id="connected_workers">
         {% for machine in all_machines %}
-        <div class="row bell-block" onclick="openBellManager('{{machine[1]}}')">
+        <div class="row bell-block" onclick="openBellManager('{{machine[1]}}', '{{machine[2]}}')">
           <div class="d-flex justify-content-between">
             <div class="row">
               <span class="bell-heading"
                 >Корпус: <span class="fst-italic">{{machine[3]}}</span></span
               >
             </div>
-            <button type="button" class="btn btn-primary">Открыть</button>
+            <button type="button" class="btn btn-primary">Настроить</button>
           </div>
         </div>
         {% endfor %}

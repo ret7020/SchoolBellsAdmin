@@ -54,7 +54,6 @@ class WebUI:
             return redirect("/login")
         else:
             all_machines = self.db_manager.get_machines()
-            print(all_machines)
             return render_template("index.html", all_machines=all_machines)
         
     def login(self):
